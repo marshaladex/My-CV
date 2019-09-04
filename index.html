@@ -260,27 +260,6 @@ fieldset {
     background: rgb(68, 20, 20);
 }
 	</style>
-	<script type="text/javascript">
-		const modalControls = (() => {
-const openModal = () => {
-    modal.classList.remove('hide-modal');
-};
-const closeModal = () => {
-    modal.classList.add('hide-modal');
-    email.value = '';
-    name.value = '';
-    message.value = '';
-    };
-
-const openModalBtn = document.querySelector('.contact-modal-open-btn').addEventListener('click', openModal);
-    const closeModalBtn = document.querySelector('#close-btn');
-    closeModalBtn.addEventListener('click', closeModal);
-    const modal = document.querySelector('#modal-with-form'); 
-    const name = document.querySelector('#name'); 
-    const email = document.querySelector('#email'); 
-    const message = document.querySelector('#message'); 
-})();
-	</script>
 </head>
 <body>
 	<div id="page-wrap">
@@ -398,5 +377,26 @@ const openModalBtn = document.querySelector('.contact-modal-open-btn').addEventL
 		<a href="https://www.facebook.com/Marshaladex" target="blank"> <img src="http://img.icons8.com/color/48/000000/facebook-new.png" alt=""></a>
 		<a href="https://github.com/marshaladex" target="blank"><img src="https://img.icons8.com/metro/40/000000/github.png" alt=""></a>
 	</footer>
+	<script type="text/javascript">
+		const modalControls = (() => {
+const openModal = () => {
+    modal.classList.remove('hide-modal');
+};
+const closeModal = () => {
+    modal.classList.add('hide-modal');
+    email.value = '';
+    name.value = '';
+    message.value = '';
+    };
+
+const openModalBtn = document.querySelector('.contact-modal-open-btn').addEventListener('click', openModal);
+    const closeModalBtn = document.querySelector('#close-btn');
+    closeModalBtn.addEventListener('click', closeModal);
+    const modal = document.querySelector('#modal-with-form'); 
+    const name = document.querySelector('#name'); 
+    const email = document.querySelector('#email'); 
+    const message = document.querySelector('#message'); 
+})();
+	</script>
 </body>
 </html>
