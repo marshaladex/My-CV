@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/HTML5; charset=utf-8"/>
+	<title>YUSUF</title>
+	<style>
+		* {
+    margin: 0;
+    padding: 0;
+}
+body {
+    font: 16px Helvetica, Sans-Serif;
+    line-height: 24px;
+    background: #5C5C5C;
+}
+.clear {
+    clear: both;
+}
+#page-wrap {
+    width: 800px;
+    margin: 40px auto 60px;
+}
+#pic {
+    float: right;
+    margin: -30px 0 0 0;
+}
+h1 {
+    margin: 0 0 16px 0;
+    padding: 0 0 16px 0;
+    font-size: 42px;
+    font-weight: bold;
+    letter-spacing: -2px;
+    border-bottom: 1px solid #999;
+}
+h2 {
+    font-size: 20px;
+    margin: 0 0 6px 0;
+    position: relative;
+}
+h2 span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-style: italic;
+    font-family: Georgia, Serif;
+    font-size: 16px;
+    color: #999;
+}
+p {
+    margin: 0 0 16px 0;
+}
+a {
+    color: #999;
+    text-decoration: none;
+    border-bottom: 1px; dotted #999;
+}
+a:hover {
+    border-bottom-style: solid;
+    color: black;
+}
+ul {
+    margin: 0 0 32px 17px;
+}
+#objective {
+    width: 500px;
+    float: left;
+}
+#objective p {
+    font-family: Georgia, Serif;
+    font-style: italic;
+    color: #000000;
+}
+dt {
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+    text-align: right;
+    padding: 0 26px 0 0;
+    width: 150px;
+    float: left;
+    height: 100px;
+    border-right: 1px solid #999;
+}
+dd {
+    width: 600px;
+    float: right;
+}
+dd.clear {
+    float: none;
+    margin: 0;
+    height: 15px;
+}
+
+.contact-modal{
+    height: 100vh;
+    width: 100%;
+    font-family:"Open Sans", Helvetica, Arial, sans-serif;
+    font-weight:300;
+    font-size: 12px;
+    line-height:30px;
+    color:#777;
+    background:rgb(80, 94, 97);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+    transition: opacity .3s linear;
+    position: fixed;
+    top: 0;
+}
+.hide-modal{
+    opacity: 0;
+    pointer-events: none;
+    user-select: none;
+    cursor: none;
+    transition: opacity .3s linear;
+  
+}
+.container {
+    max-width:350px;
+    width:100%;
+    margin:0 auto;
+    position:relative;
+}
+#contact-form input[type="text"], 
+#contact-form input[type="email"],
+#contact-form input[type="tel"], 
+#contact-form textarea, 
+#contact-submit{
+     font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+#contact-form {
+    background:#F9F9F9;
+    padding:25px;
+    margin:50px 0;
+    position: relative;
+}
+
+#contact-form h4 {
+    margin:5px 0 15px;
+    display:block;
+    font-size:13px;
+}
+
+fieldset {
+    border: medium none !important;
+    margin: 0 0 10px;
+    min-width: 100%;
+    padding: 0;
+    width: 100%;
+    position: relative;
+
+}
+
+#contact-form input[type="text"], 
+#contact-form input[type="email"], 
+#contact-form input[type="tel"], 
+#contact-form input[type="url"], 
+#contact-form textarea {
+    width:100%;
+    border:1px solid #CCC;
+    background:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+}
+
+#contact-form textarea {
+    height:100px;
+    max-width:100%;
+  resize:none;
+}
+
+#contact-submit {
+    cursor:pointer;
+    width:100%;
+    border:none;
+    background:#0CF;
+    color:#FFF;
+    margin:0 0 5px;
+    padding:10px;
+    font-size:15px;
+}
+
+#contact-submit:hover {
+    background:#09C;
+    -webkit-transition:background 0.3s ease-in-out;
+    -moz-transition:background 0.3s ease-in-out;
+    transition:background-color 0.3s ease-in-out;
+}
+
+#contact-submit:active { 
+    box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); 
+}
+
+#contact-form input:focus, #contact-form textarea:focus {
+    outline:0;
+    border:1px solid #999;
+}
+
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+
+
+#contact-form input[type="text"], 
+#contact-form input[type="email"], 
+#contact-form input[type="tel"]{
+    padding-top: 20px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background:none;
+}
+
+
+
+#close-btn{
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: 26px;
+    color: red;
+    padding: 5px;
+    font-weight: 600;
+    transition: font-size .2s linear;
+    cursor: pointer;
+    user-select: none;
+}
+#close-btn:hover{
+    transition: font-size .2s linear;
+    font-size: 29px;
+}
+#close-btn:active{
+    color: blue;
+}
+
+.contact-modal-open-btn{
+    position: fixed;
+    top: 0;
+    right: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+    background: rgb(69, 69, 69);
+    font-size: 12px;
+    cursor: pointer;
+    color: #ffffff;
+}
+.contact-modal-open-btn:hover{
+    background: rgb(68, 20, 20);
+}
+	</style>
+
+</head>
+<body>
+	<div id="page-wrap">
+			<img src="https://res.cloudinary.com/cypher/image/upload/v1566537651/Yusuf_zrin2n.jpg" height="200" width="200" id="pic">
+		<div id="contact-info" class="vcard">
+			<h1 class="fn">Yusuf Owolabi Adeyemo</h1>
+			<p>
+				5, Lemo Street, Mafoluku, Oshodi, Lagos.<br>
+				Cell: <span class="tel">+2348035546530</span><br>
+				Email: <a class="email" href="mailto:adeyemoyusuf07@gmail.com">adeyemoyusuf07@gmail.com</a>
+			</p>
+		</div>
+		<div id="objective">
+			<p>
+				I am very much interested in bringing positive values anywhere i find myself. Possess self-discipline and ability to work under pressure and little or no supervision, with attention to details. Looking to improve business processes, operations and profits.
+			</p>
+		</div>
+		<div class="clear"></div>
+		<dl>
+			<dd class="clear"></dd>
+			<dt>Education</dt>
+			<dd>
+				December 2014 - March 2019<br>
+				<h2>Federal University of Agriculture, Abeokuta</h2>
+				<p><strong>BSC Computer Science.</strong>
+				</p>
+				2007 - 2009<br>
+				<h2>BrightVille College, Lagos</h2>
+				<p><strong>WASSCE.</strong></p>
+				2004 - 2007<br>
+				<h2>Apata Memorial Schools, Lagos</h2>
+				<p><strong>JSCE, First School Leaving Certificate.</strong></p>
+			</dd>
+			<dd class="clear"></dd>
+			<dt>Skills</dt>
+			<dd>
+				<h2>Office Skills</h2>
+				<p>Office and records management, customer relations, high sense of accountability, teamwork.</p>
+				<h2>Computer Skills</h2>
+				<p>Proficient in the use of Microsoft software (Word, Excel, etc), Intermediate knowledge in Frontend Development (HTML5, CSS, JavaScript) and Basic knowledge in Python</p>
+			</dd>
+			<dd class="clear"></dd>
+			<dt>Experience</dt>
+			<dd>
+				<h2>Manifold Computers, Lagos <span>Technical Support Intern 2017-2018</span></h2>
+				<ul>
+					<li>
+						Ensure proper management of clients with the use of support on various products.
+					</li>
+					<li>Management of company website.</li>
+					<li>Custodian of all in house technical appliances (laptops, desktops, printers).</li>
+				</ul>
+				<h2>Into Mobile Nigeria Limited <span>Sales Rep May 2013-December 2013</span></h2>
+				<ul>
+					<li>Sales of Mobile phones (Low end and High end).</li>
+					<li>Sales of Etisalat (9 Mobile) Data services.</li>
+					<li>Customer Service</li>
+				</ul>
+			</dd>
+			<dd class="clear"></dd>
+			<dt>Certifications</dt>
+			<dd>
+				<ul>
+					<li><strong>Basic Digital Skills Training</strong> - <span>Haptics Nigeria</span></li>
+					<li><strong>ALC with Microsoft</strong> - <span>Andela</span></li>
+					<li><strong>The Complete Python 3 Course</strong> - <span>Udemy</span></li>
+				</ul>
+			</dd>
+			<dd class="clear"></dd>
+			<dt>Languages</dt>
+			<dd>English and Yoruba</dd>
+			<dd class="clear"></dd>
+			<dt>Referees</dt>
+			<dd>Available on request</dd>
+			<dd class="clear"></dd>
+			
+		</dl>
+		<div class="clear"></div>
+	</div>
+
+	<div id="modal-with-form" class="contact-modal hide-modal">
+        <div class="container">  
+                <form id="contact-form">
+                  <h4>Fill this form to reach me</h4>
+                  <span id="close-btn">&times;</span>
+                  <fieldset>
+                    <input type="text" id="name" required autofocus minlength="4" placeholder="Your Name">
+                    
+                  </fieldset>
+                  <fieldset>
+                    <input type="email" id="email" required placeholder="Your Email Here...">
+                    
+                  </fieldset>
+                  <fieldset>
+                  	<input type="text" name="title" required placeholder="Title of your Message">
+                  </fieldset>
+                 
+                  <fieldset>
+                    <textarea id="message" minlength="20" required placeholder="Type your message here..."></textarea>
+                  </fieldset>
+                  <fieldset>
+                    <button name="submit" id="contact-submit">Submit</button>
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+        <div class="contact-modal-open-btn">
+            <h2>Contact me</h2>
+        </div>
+
+	<footer>
+		<h4>Contact</h4>
+		<a href="https://www.linkedin.com/in/yusuf-adeyemo-b3476a13a/" target="blank"> <img src="http://img.icons8.com/office/40/000000/linkedin.png" alt=""></a>
+		<a href="https://twitter.com/marshaladex" target="blank"> <img src="http://img.icons8.com/color/48/000000/twitter.png" alt=""></a>
+		<a href="https://www.facebook.com/Marshaladex" target="blank"> <img src="http://img.icons8.com/color/48/000000/facebook-new.png" alt=""></a>
+		<a href="https://github.com/marshaladex" target="blank"><img src="https://img.icons8.com/metro/40/000000/github.png" alt=""></a>
+	</footer>
+		<script type="text/javascript">
+		const modalControls = (() => {
+const openModal = () => {
+    modal.classList.remove('hide-modal');
+};
+const closeModal = () => {
+    modal.classList.add('hide-modal');
+    email.value = '';
+    name.value = '';
+    message.value = '';
+    };
+
+const openModalBtn = document.querySelector('.contact-modal-open-btn').addEventListener('click', openModal);
+    const closeModalBtn = document.querySelector('#close-btn');
+    closeModalBtn.addEventListener('click', closeModal);
+    const modal = document.querySelector('#modal-with-form'); 
+    const name = document.querySelector('#name'); 
+    const email = document.querySelector('#email'); 
+    const message = document.querySelector('#message'); 
+})();
+	</script>
+</body>
+</html>
